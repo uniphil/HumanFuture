@@ -55,7 +55,6 @@ def humanize(future, ref=None):
         return '%s past midnight tomorrow' % english_number(minutes, 'minute', 'minutes')
 
     elif (global_seconds <= 60 * 60 * 24 * 8 and day_changes <= 7):
-        print day_changes
         if day_changes <= 3 or (future.weekday() == 6 and ref.weekday() != 6):
             return '%s at %s' % (future.strftime('%A'), english_time(future))
         elif (future.weekday() > ref.weekday() or ref.weekday() == 6) and day_changes <= 6:
