@@ -42,21 +42,15 @@ def humanize(future, ref=None):
             (lambda m: '' if m is 0 else ' and %s' % english_number(m, 'minute', 'minutes'))(minutes))
 
     elif global_seconds < 60 * 60 * 24 and ref.day == future.day:
+        if future.hour == 23 and future.minute == 58:
+            return 'two minutes to midnight'
         return english_time(future)
 
     elif (global_seconds <= 60 * 60 * 24 * 2 and day_changes == 1):
         if future.hour == 0:
             if future.minute == 0:
                 return 'midnight tonight'
-            if future.minute <= 25:
-                return '%s past midnight' % english_number(minutes, 'minute', 'minutes')
         return 'tomorrow at %s' % english_time(future)
-
-    elif (global_seconds <= 60 * 60 * 24 * 2 + 60 * 25 and day_changes == 2 and
-        future.hour == 0 and future.minute <= 25):
-        if future.minute == 0:
-            return 'tomorrow at midnight'
-        return '%s past midnight tomorrow' % english_number(minutes, 'minute', 'minutes')
 
     elif (global_seconds <= 60 * 60 * 24 * 8 and day_changes <= 7):
         if day_changes <= 3 or (future.weekday() == 6 and ref.weekday() != 6):

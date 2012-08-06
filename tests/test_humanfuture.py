@@ -75,9 +75,12 @@ class TestHumanFuture(unittest.TestCase):
     def testMidnight(self):
         self.assertHuman(datetime(2012, 1, 2, 0, 0), 'midnight tonight')
 
+    def testMinutesToMidnight(self):
+        self.assertHuman(datetime(2012, 1, 1, 23, 58), 'two minutes to midnight') # added v0.2
+
     def testTodayAfterMidnight(self):
-        self.assertHuman(datetime(2012, 1, 2, 0, 1), 'one minute past midnight')
-        self.assertHuman(datetime(2012, 1, 2, 0, 25), '25 minutes past midnight')
+        self.assertHuman(datetime(2012, 1, 2, 0, 1), 'tomorrow at 12:01 am') # changed v0.2
+        self.assertHuman(datetime(2012, 1, 2, 0, 25), 'tomorrow at 12:25 am') # changed v0.2
         self.assertHuman(datetime(2012, 1, 2, 0, 26), 'tomorrow at 12:26 am')
     
     def testTomorrow(self):
@@ -88,11 +91,11 @@ class TestHumanFuture(unittest.TestCase):
         self.assertHuman(datetime(2012, 1, 2, 12, 0), 'tomorrow at noon')
     
     def testTomorrowMidnight(self):
-        self.assertHuman(datetime(2012, 1, 3, 0, 0), 'tomorrow at midnight')
+        self.assertHuman(datetime(2012, 1, 3, 0, 0), 'Tuesday at 12 am') # changed v0.2
     
     def testTomorrowAfterMidnight(self):
-        self.assertHuman(datetime(2012, 1, 3, 0, 1), 'one minute past midnight tomorrow')
-        self.assertHuman(datetime(2012, 1, 3, 0, 25), '25 minutes past midnight tomorrow')
+        self.assertHuman(datetime(2012, 1, 3, 0, 1), 'Tuesday at 12:01 am') # changed v0.2
+        self.assertHuman(datetime(2012, 1, 3, 0, 25), 'Tuesday at 12:25 am') # changed v0.2
     
     def testTomorrowMinutesRollover(self):
         self.assertHuman(datetime(2012, 2, 1, 0, 0), 'about a minute',
