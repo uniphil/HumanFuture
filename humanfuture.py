@@ -9,6 +9,10 @@ def humanize(future, ref=None):
     If you need to explicitely set the reference that the future is relative
     to, just pass it in as a second datetime object.
     """
+
+    if not ref:
+        ref = datetime.now()
+
     delta = future - ref
     seconds = delta.seconds
     days = delta.days
