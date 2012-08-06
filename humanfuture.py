@@ -3,8 +3,12 @@ from datetime import datetime, timedelta
 class NegativeDeltaError(Exception): pass
 class UnformattableError(Exception): pass
 
-def humanize(future, ref):
-
+def humanize(future, ref=None):
+    """
+    Return a nice string representing a future datetime in english.
+    If you need to explicitely set the reference that the future is relative
+    to, just pass it in as a second datetime object.
+    """
     delta = future - ref
     seconds = delta.seconds
     days = delta.days
