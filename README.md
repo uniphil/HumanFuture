@@ -10,7 +10,7 @@ Installing
 This packages is on PyPi, so assuming you have setup tools installed, it's just
 a matter of doing
 
- pip install humanfuture
+    pip install humanfuture
 
 
 Humanizing Your Future
@@ -42,4 +42,4 @@ Credits
 =======
 
 Although this is a completely new module, some inspiration was taken from the
-lovely (`humanize`)[https://github.com/jmoiron/humanize] module.
+lovely [`humanize`](https://github.com/jmoiron/humanize) module.
