@@ -41,6 +41,9 @@ Examples
     'April 13, 2013 at 11:11 pm'
 
 
+For a more complete -- though, also uglier -- reference of what this module
+outputs, see `test_humanfuture.py` in `tests`.
+
 
 Humanizing Your Future
 ======================
