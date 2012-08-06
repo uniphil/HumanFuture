@@ -3,6 +3,14 @@ HumanFuture
 
 Python utility to write future dates in a human-friendly way.
 
+The module was motivated by a need to represent future events in a friendly,
+but not fuzzy way for the tweet-scheduling tool, 
+[antictweet](http://anticitweet.com). Friendly language without sacrificing
+precision is what makes HumanFuture different.
+
+The module is currently hard-coded in 12-hour english, with a precision of one
+minute.
+
 
 Installing
 ==========
